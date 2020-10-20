@@ -22,9 +22,10 @@
            		<tr><td align="center">${u.id}</td><td>${u.userName}</td><td><a href="toUserUpdateServlet?userid=${u.id}">修改</a>|<a href="userDeleteServlet?userid=${u.id}">删除</a></td></tr>
            	</c:forEach>
            	
-           	<%--<tr><td colspan="3" align="center"><a href="userSelectServlet?currentPage=<%=currentPage-1%>">上一页</a>
-           		|<a href="userSelectServlet?currentPage=<%=currentPage+1%>">下一页</a></td>--%>
+           	 <tr><td colspan="3" align="center"><a href="/userSelectServlet?currentPage1=${currentPage-1}">上一页</a>
+           		|<a href="/userSelectServlet?currentPage1=${currentPage+1}">下一页</a>|一共${page}页</td>
            	</tr>
+
         </table>
     </center>
 </body>

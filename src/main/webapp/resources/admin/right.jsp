@@ -12,16 +12,16 @@
 <body background="../images/back.gif" style="background-color:white">
     <center>
    
-        <table border="0" width="220" height="auto" cellspacing="0" cellpadding="0" style="margin-top:7;background-color:white">
+        <table border="0" width="220" height="auto" cellspacing="0" cellpadding="0" style="margin-top:7px;background-color:white">
             <!-- 显示方式 -->
             
             <tr>欢迎 ${loginName }登录</tr>
             
-            <tr height="30" bgcolor="#F0F0F0"><td style="text-indent:5" style="border:1 solid"><font color="#004790"><b>■用户管理</b></font></td></tr>
+            <tr height="30" bgcolor="#F0F0F0"><td style="text-indent:5px" style="border:1px solid"><font color="#004790"><b>■用户管理</b></font></td></tr>
             <tr height="1"><td></td></tr>
-            <form action="/userSelectServlet" method="post" target="default">
+            <form action="/userSelectServlet?currentPage1=1" method="post" target="default">
             <tr>
-                <td align="center" valign="top" style="border:1 solid">
+                <td align="center" valign="top" style="border:1px solid">
                     <table border="0" width="220" height="80" cellspacing="0"  style="font-size:12px">
                         <tr height="25"><td align="center" valign="bottom">请输入要查询的用户ID：</td></tr>
                         <tr height="40">

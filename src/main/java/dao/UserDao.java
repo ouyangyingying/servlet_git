@@ -55,36 +55,46 @@ public class UserDao {
 
     }
 
-    // 查询用户信息
-    public List<User> userSelect(String id) throws SQLException {
+    // 查询用户信息 分页查询 currentPage当前页数   pageSize每页显示多少条
+    public List<User> userSelect(String id,int currentPage,int pageSize) throws SQLException {
         List<User> list = new ArrayList<>();
         Connection conn = DBUtil.getConn();
         String sql = "";
 
-        if (id == null || id.equals("")) {
-            sql = "select * from tb_user";
-        } else {
-            sql = "select * from tb_user where id=" + id;
-        }
+        try {
+            //偏移量
+            int offset=(currentPage-1)*pageSize;
+            if (id == null || id.equals("")) {
+                sql = "select * from tb_user limit "+offset+" , "+pageSize;
 
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ResultSet r = ps.executeQuery();
-        //遍历结果集
-        while (r.next()) {
-            Integer id1 = r.getInt("ID");
-            String userName = r.getString("USER_NAME");
-            String pwd = r.getString("USER_PASSWORD");
-            Integer userType = r.getInt("USER_TYPE");
-            Integer userState = r.getInt("USER_STATE");
-            User user = new User();
-            user.setId(id1);
-            user.setUserName(userName);
-            user.setUserPassword(pwd);
-            user.setUserType(userType);
-            user.setUserState(userState);
-            list.add(user);
-        }
+            } else {
+                sql = "select * from tb_user where id=" +id+" limit "+offset+" , "+pageSize;
+            }
 
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet r = ps.executeQuery();
+            //遍历结果集
+            while (r.next()) {
+                Integer id1 = r.getInt("ID");
+                String userName = r.getString("USER_NAME");
+                String pwd = r.getString("USER_PASSWORD");
+                Integer userType = r.getInt("USER_TYPE");
+                Integer userState = r.getInt("USER_STATE");
+                User user = new User();
+                user.setId(id1);
+                user.setUserName(userName);
+                user.setUserPassword(pwd);
+                user.setUserType(userType);
+                user.setUserState(userState);
+                list.add(user);
+            }
+
+
+        }catch (Exception e){
+
+        }finally {
+            conn.close();
+        }
 
         return list;
     }
@@ -171,6 +181,29 @@ public class UserDao {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+            }
+        }
+        return row;
+    }
+
+    //获取条数
+    public int getDataTotal(){
+        int row=0;
+        Connection conn = DBUtil.getConn();
+        String sql="select * from tb_user";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                row++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
         return row;

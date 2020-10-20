@@ -13,7 +13,7 @@
             <tr>
                 <td width="100%" height="100%" align="right" valign="bottom">
                
-				<a href="" onclick="window.parent.location.href=''">
+				<a href="/toIndex" onclick="">
 					<img src="../images/admin_index.gif" border="0">
 					</a>
 				<a href="logoutServlet" target="_parent">

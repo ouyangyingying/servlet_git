@@ -17,7 +17,7 @@ public class UserDelete extends HttpServlet {
         int i = userDao.deleteUserById(id);
         if(i>0){
             //重定向
-            resp.sendRedirect("/userSelectServlet");
+             resp.sendRedirect("/userSelectServlet?currentPage1=1");
         }else {
             req.getRequestDispatcher("error.jsp").forward(req,resp);
         }

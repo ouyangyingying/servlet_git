@@ -29,7 +29,7 @@
 <body>
 
 	<table border="0" width="225" height="100%" cellspacing="0" cellpadding="0">
-		<tr height="30"><td style="text-indent:5" valign="bottom"><font color="#004790"><b>■日历</b></font></td></tr>            
+		<tr height="30"><td style="text-indent:5px" valign="bottom"><font color="#004790"><b>■日历</b></font></td></tr>
 		<tr height="1"><td></td></tr>
 		<!-- 日历 -->
 		<tr height="180">
@@ -39,7 +39,7 @@
 		</tr>
 	
 		<tr height="1"><td></td></tr>
-		<tr height="30"><td style="text-indent:5" valign="bottom"><font color="#004790"><b>■信息快速搜索</b></font></td></tr>
+		<tr height="30"><td style="text-indent:5px" valign="bottom"><font color="#004790"><b>■信息快速搜索</b></font></td></tr>
 		<tr height="1"><td></td></tr>
 		<tr height="103">
 			<td align="center" valign="top" background="../images/leftS.jpg">
